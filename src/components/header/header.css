@@ -1,0 +1,166 @@
+.mainHeader {
+    background-color: FFFFFF;
+    height: 120px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.mainHeader .content {
+    width: 100%;
+    margin-left: 120px;
+    margin-right: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mainHeader .content .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+}
+
+.mainHeader .content .logo .inga {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 29px;
+    color: #EC1F46;
+}
+
+.mainHeader .content .logo .maps {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 29px;
+    color: #333333;
+    margin-left: 5px;
+}
+
+.search {
+    margin-left: 110px;
+    white-space: nowrap;
+}
+
+.search button {
+    background-color:#EC1F46;
+    border: none;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    height: 40px;
+    width: 70px;
+    color: white;
+}
+
+.svg-inline--fa .fa-search .fa-w-16 {
+    color: white;
+}
+
+.search input {
+    width: 310px;
+    height: 40px;
+    border: none;
+    background-color: #F5FAFE;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.search input:focus {
+    box-shadow: 0 0 3px #6db5f1;
+    outline: none;
+}
+
+.search input::placeholder{
+    font-family: Mulish;
+    font-size: 12;
+    color: #333333;
+    justify-content: center;
+    opacity: 4;
+}
+
+.icons {
+    margin-left: 40px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.icons div {
+    margin-left:20px;
+}
+
+.icons img {
+    border-radius: 50%;
+}
+
+.notify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EC1F46;
+    border-radius: 50px;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    color: white;
+    font-family: Mulish;
+    font-size: 12px;
+    position: relative;
+    bottom: 35px;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dropbtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border: none;
+    color: #333333;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.02);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #F5FAFE}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+@media (max-width: 1215px) {
+    .mainHeader .content {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+    .search {
+        margin-left: 40px;
+    }
+    .search input {
+        width: 230px;
+    }
+}
