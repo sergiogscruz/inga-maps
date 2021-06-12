@@ -37,7 +37,7 @@
 
 .search {
     margin-left: 110px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 .search button {

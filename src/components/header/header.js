@@ -13,12 +13,12 @@ export default function Header () {
                     <div className="inga">Ingá</div>
                     <div className="maps">Maps</div>
                 </div>
-                <form className="search" style={{"white-space": "nowrap"}}> 
+                <form className="search" style={{"whiteSpace": "nowrap"}}> 
                     <input type="text" placeholder="Pesquisar restaurantes"></input>
                     <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
                 </form>
                 <div className="icons">
-                    <div style={{"margin-left":"0"}}>
+                    <div style={{"marginLeft":"0"}}>
                         <FontAwesomeIcon icon={faStar} className="fa-2x" />
                         <div className="notify">99</div>
                     </div>

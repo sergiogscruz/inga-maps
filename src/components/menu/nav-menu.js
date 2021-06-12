@@ -1,30 +1,39 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import './nav-menu.css'
 
 export default function NavMenu() {
+
     return (
-        <div>
+        <div className="container">
+
             <ul>
-              <li>
-                <Link to="/">Home</Link>
+              <li>      
+                <Link to="/">HOME</Link>
               </li>
+
               <li>
-                <Link to="/hotels">Hoteis</Link>
+                <Link to="/hotels">HOTEIS</Link>
               </li>
+
               <li>
-                <Link to="/touristspots">Pontos Turísticos</Link>
+                <Link to="/touristspots">PONTOS TURÍSTICOS</Link>
               </li>
+
               <li>
-                <Link to="/restaurants">Restaurantes</Link>
+                <Link to="/restaurants">RESTAURANTE</Link>
               </li>
+
               <li>
-                <Link to="/shoppings">Shoppings</Link>
+                <Link to="/shoppings">SHOPPINGS</Link>
               </li>
+
               <li>
-                <Link to="/nextevent">Próximos Eventos</Link>
+                <Link to="/nextevent">PRÓXIMOS EVENTOS</Link>
               </li>
+
               <li>
-                <Link to="/contacts">Contatos</Link>
+                <Link to="/contacts">CONTATOS</Link>
               </li>
             </ul>
         </div>

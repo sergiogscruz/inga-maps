@@ -7,6 +7,8 @@ import {
 
 import Header from './components/header/header';
 import NavMenu from './components/menu/nav-menu';
+import ContentBody from './components/content/ContentBody';
+
 
 function App() {
   return (
@@ -16,58 +18,30 @@ function App() {
       <NavMenu />
       <Switch>
         <Route path="/hotels">
-          <Hotels />
+          <ContentBody />
         </Route>
         <Route path="/touristspots">
-          <Touristspots />
+          <ContentBody />
         </Route>
         <Route path="/restaurants">
-          <Restaurants />
+          <ContentBody />
         </Route>
         <Route path="/shoppings">
-          <Shoppings />
+          <ContentBody />
         </Route>
         <Route path="/nextevent">
-          <Nextevent />
+          <ContentBody />
         </Route>
         <Route path="/contacts">
-          <Contacts />
+          <ContentBody />
         </Route>
         <Route path="/">
-          <Home />
+          <ContentBody />
         </Route>
       </Switch>
     </Router>
     </>
   );
-
-  function Home () {
-    return <h2>Home</h2>;
-  }
-
-  function Hotels () {
-    return <h2>Hoteis</h2>;
-  }
-
-  function Touristspots () {
-    return <h2>Pontos Turísticos</h2>;
-  }
-
-  function Restaurants () {
-    return <h2>Restaurantes</h2>;
-  }
-
-  function Shoppings () {
-    return <h2>Shoppings</h2>;
-  }
-
-  function Nextevent () {
-    return <h2>Próximos eventos</h2>;
-  }
-
-  function Contacts () {
-    return <h2>Contatos</h2>;
-  }
 }
 
 export default App;
