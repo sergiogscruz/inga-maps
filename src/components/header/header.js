@@ -1,15 +1,17 @@
-import React from 'react';
-import './header.css';
+import React, { useState } from 'react'
+import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
+import Login from '../login/login'
 
 
 export default function Header() {
+    const [showModal, setShowModal] = useState(false)
 
     const userIsConnected = () => {
         const user = JSON.parse(localStorage.getItem('user'))
-        return user.token != 'Basic YW5vbmltbzppbmdhbWFwcw=='
+        return user.token !== 'Basic YW5vbmltbzppbmdhbWFwcw=='
     }
 
     const getNumberNotifications = () => {
@@ -24,8 +26,13 @@ export default function Header() {
         return JSON.parse(localStorage.getItem('user')).name
     }
 
+    const useLogin = () => {
+        setShowModal(true)
+    }
+
     return (
         <div className="mainHeader">
+            <Login showModal={showModal} setShowModal={setShowModal}></Login>
             <div className="content">
                 <div className="logo">
                     <div className="inga">Ingá</div>
@@ -57,7 +64,7 @@ export default function Header() {
                             <a href="">Sair</a>
                         </div>}
                         {!userIsConnected() && <div className="dropdown-content">
-                            <a href="">Realizar Login</a>
+                            <p onClick={useLogin}>Realizar Login</p>
                         </div>}
                     </div>
                 </div>
