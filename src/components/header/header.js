@@ -2,10 +2,28 @@ import React from 'react';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import { faStar,faCalendar } from '@fortawesome/free-regular-svg-icons'
+import { faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
 
 
-export default function Header () {
+export default function Header() {
+
+    const userIsConnected = () => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        return user.token != 'Basic YW5vbmltbzppbmdhbWFwcw=='
+    }
+
+    const getNumberNotifications = () => {
+        return 0
+    }
+
+    const getPhotoUser = () => {
+        return JSON.parse(localStorage.getItem('user')).photo
+    }
+
+    const getNameUser = () => {
+        return JSON.parse(localStorage.getItem('user')).name
+    }
+
     return (
         <div className="mainHeader">
             <div className="content">
@@ -13,32 +31,34 @@ export default function Header () {
                     <div className="inga">Ingá</div>
                     <div className="maps">Maps</div>
                 </div>
-                <form className="search" style={{"whiteSpace": "nowrap"}}> 
+                <form className="search" style={{ "whiteSpace": "nowrap" }}>
                     <input type="text" placeholder="Pesquisar restaurantes"></input>
                     <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
                 </form>
                 <div className="icons">
-                    <div style={{"marginLeft":"0"}}>
+                    <div style={{ "marginLeft": "0" }}>
                         <FontAwesomeIcon icon={faStar} className="fa-2x" />
-                        <div className="notify">99</div>
+                        {getNumberNotifications() > 0 && <div className="notify"></div>}
                     </div>
                     <div>
                         <FontAwesomeIcon icon={faCalendar} className="fa-2x" />
-                        <div className="notify">10</div>
+                        {getNumberNotifications() > 0 && <div className="notify"></div>}
                     </div>
                     <div>
-                        <img src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png" width="40" height="40" alt="User Name"></img>
+                        <img src={getPhotoUser()} width="40" height="40" alt="User Name"></img>
                     </div>
-                    <div className="user-profile dropdown">   
+                    <div className="user-profile dropdown">
                         <button className="dropbtn">
-                            <p>Pedro Pereira</p>
+                            <p>{getNameUser()}</p>
                             <div className="fa-2x"><FontAwesomeIcon icon={faAngleDown} /></div>
                         </button>
-                        <div className="dropdown-content" style={{"margin":"0"}}>
-                            <a href="">lorem ipsum</a>
-                            <a href="">lorem ipsum</a>
-                            <a href="">lorem ipsum</a>
-                        </div>
+                        {userIsConnected() && <div className="dropdown-content">
+                            <a href="">Alterar Senha</a>
+                            <a href="">Sair</a>
+                        </div>}
+                        {!userIsConnected() && <div className="dropdown-content">
+                            <a href="">Realizar Login</a>
+                        </div>}
                     </div>
                 </div>
             </div>
