@@ -8,6 +8,7 @@ import {
 import Header from './components/header/header';
 import NavMenu from './components/menu/nav-menu';
 import ContentBody from './components/content/ContentBody';
+import List from './components/List/List';
 
 
 function App() {
@@ -18,13 +19,14 @@ function App() {
       <NavMenu />
       <Switch>
         <Route path="/hotels">
-          <ContentBody />
+        <ContentBody />
         </Route>
         <Route path="/touristspots">
           <ContentBody />
         </Route>
         <Route path="/restaurants">
-          <ContentBody />
+        <List />
+          
         </Route>
         <Route path="/shoppings">
           <ContentBody />

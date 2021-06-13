@@ -1,9 +1,10 @@
 .mainHeader {
-    background-color: FFFFFF;
+    background-color: #FFFFFF;
     height: 120px;
     align-items: center;
     display: flex;
     flex-direction: row;
+    width: 100vw;
 }
 
 .mainHeader .content {
