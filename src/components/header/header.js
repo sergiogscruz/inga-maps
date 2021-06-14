@@ -77,11 +77,11 @@ export default function Header() {
                             <div className="fa-2x"><FontAwesomeIcon icon={faAngleDown} /></div>
                         </button>
                         {userIsConnected() && <div className="dropdown-content">
-                            <a onClick={useChangePassword}>Alterar Senha</a>
-                            <a onClick={doLogout}>Sair</a>
+                            <p onClick={useChangePassword}>Alterar Senha</p>
+                            <p onClick={doLogout}>Sair</p>
                         </div>}
                         {!userIsConnected() && <div className="dropdown-content">
-                            <a onClick={useLogin}>Entrar</a>
+                            <p onClick={useLogin}>Entrar</p>
                         </div>}
                     </div>
                 </div>
