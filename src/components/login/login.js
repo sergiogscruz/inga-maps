@@ -4,7 +4,6 @@ import "./login.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios'
-import { Alert } from 'bootstrap'
 
 const Login = (props) => {
     const {showLoginModal, setShowLoginModal} = props

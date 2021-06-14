@@ -9,6 +9,7 @@ import {
 import Header from './components/header/header';
 import NavMenu from './components/menu/nav-menu';
 import ContentBody from './components/content/ContentBody';
+import axios from 'axios';
 
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
       token: "Basic YW5vbmltbzppbmdhbWFwcw=="
     }))
   }
+
+  axios.defaults.baseURL = 'https://ingamaps-api.herokuapp.com';
+  axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('user')).token;
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
 
   return (
     <>
