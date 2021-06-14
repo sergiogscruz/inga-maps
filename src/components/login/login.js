@@ -29,6 +29,7 @@ const Login = (props) => {
             localStorage.setItem('user', JSON.stringify({...response,
                 photo: response.photo ? response.photo : 'https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png'
             }))
+            axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('user')).token;
             hideModal()
         } catch (error) {
             alert('Usuário ou senha incorreta.')
