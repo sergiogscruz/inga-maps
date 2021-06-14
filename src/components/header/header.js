@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
 import Login from '../login/login'
+import ChangePassword from '../change-password/change-password'
 
 
 export default function Header() {
-    const [showModal, setShowModal] = useState(false)
+    const [showLoginModal, setShowLoginModal] = useState(false)
+    const [showChangePasswordModal, setShowChangePasswordModal] = useState(false)
 
     const userIsConnected = () => {
         const user = JSON.parse(localStorage.getItem('user'))
@@ -27,12 +29,27 @@ export default function Header() {
     }
 
     const useLogin = () => {
-        setShowModal(true)
+        setShowLoginModal(true)
+    }
+
+    const useChangePassword = () => {
+        setShowChangePasswordModal(true)
+    }
+
+    const doLogout = () => {
+        localStorage.setItem('user', JSON.stringify({
+            name: "Anônimo",
+            personType: "TOURIST_ANONYMOUS",
+            photo: "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png",
+            token: "Basic YW5vbmltbzppbmdhbWFwcw=="
+        }))
+        window.location.reload();
     }
 
     return (
         <div className="mainHeader">
-            <Login showModal={showModal} setShowModal={setShowModal}></Login>
+            <Login showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></Login>
+            <ChangePassword showChangePasswordModal={showChangePasswordModal} setShowChangePasswordModal={setShowChangePasswordModal}></ChangePassword>
             <div className="content">
                 <div className="logo">
                     <div className="inga">Ingá</div>
@@ -60,11 +77,11 @@ export default function Header() {
                             <div className="fa-2x"><FontAwesomeIcon icon={faAngleDown} /></div>
                         </button>
                         {userIsConnected() && <div className="dropdown-content">
-                            <a href="">Alterar Senha</a>
-                            <a href="">Sair</a>
+                            <a onClick={useChangePassword}>Alterar Senha</a>
+                            <a onClick={doLogout}>Sair</a>
                         </div>}
                         {!userIsConnected() && <div className="dropdown-content">
-                            <p onClick={useLogin}>Realizar Login</p>
+                            <a onClick={useLogin}>Entrar</a>
                         </div>}
                     </div>
                 </div>

@@ -1,5 +1,11 @@
-i {
+#password {
     position: absolute;
-    top: 70%;
+    top: 50%;
+    right: 5%;
+}
+
+#passwordRepeat {
+    position: absolute;
+    top: 78%;
     right: 5%;
 }
