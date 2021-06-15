@@ -1,0 +1,45 @@
+#footer-inscreva-se-container {
+    background-image: url(../../../img/background-inscreva-se.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 260px;
+}
+.input-inscreva-se {
+    text-indent: 0;
+    color: black;
+}
+.p-inscreva-se {
+    font-weight: lighter;
+    font-size: 22px;
+}
+.h4-canal-de-noticias {
+    font-size: 36px;
+    font-weight: 500;
+}
+.input-canal-de-noticias {
+    text-indent: 15px;
+    border-radius: 2px;
+    border: none;
+    background-color: white;
+    width: 285px;
+}
+.btn-canal-de-noticias {
+    border-radius: 2px;
+    color: white;
+    border: none;
+    width: 65px;
+    background-color: #EC1F46;
+}
+.container-input-canal-de-noticias {
+    margin: 0 40px;
+    border-radius: 4px;
+    display: flex;
+    height: 55px;
+}
+.container-inscreva-se {
+    margin: 0 40px;
+}

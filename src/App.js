@@ -11,7 +11,7 @@ import NavMenu from './components/menu/nav-menu';
 import ContentBody from './components/content/ContentBody';
 import List from './components/List/List';
 import axios from 'axios';
-
+import Footer from './components/footer/footer'
 
 
 function App() {
@@ -57,6 +57,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 }
