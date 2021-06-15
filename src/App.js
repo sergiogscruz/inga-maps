@@ -41,7 +41,7 @@ function App() {
             <ContentBody />
           </Route>
           <Route path="/restaurants">
-            <ContentBody />
+            <List />
           </Route>
           <Route path="/shoppings">
             <ContentBody />
