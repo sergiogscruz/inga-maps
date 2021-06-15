@@ -9,7 +9,9 @@ import {
 import Header from './components/header/header';
 import NavMenu from './components/menu/nav-menu';
 import ContentBody from './components/content/ContentBody';
+import List from './components/List/List';
 import axios from 'axios';
+
 
 
 function App() {
