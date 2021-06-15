@@ -1,11 +1,5 @@
 #password {
     position: absolute;
-    top: 50%;
-    right: 5%;
-}
-
-#passwordRepeat {
-    position: absolute;
-    top: 78%;
+    top: 70%;
     right: 5%;
 }

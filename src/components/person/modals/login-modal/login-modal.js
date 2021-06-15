@@ -8,9 +8,8 @@ import { AxiosHelper } from '../../../helpers/axios-helper'
 
 const LoginModal = (props) => {
     const {showLoginModal, setShowLoginModal} = props
-    const [loginDto, setLoginDto] = useState({username:"", password:"", passwordRepeat:""})
+    const [loginDto, setLoginDto] = useState({username:"", password:""})
     const [passwordShown, setPasswordShown] = useState(false)
-    const [passwordRepeatShown, setPasswordRepeatShown] = useState(false)
     const eye = <FontAwesomeIcon icon={faEye}/>
 
     const hideModal = () => {
@@ -22,9 +21,6 @@ const LoginModal = (props) => {
     }
 
     const doLogin = async () => {
-        if (loginDto.password !== loginDto.passwordRepeat) {
-            return alert('As senhas não conferem.')
-        }
         try {
             const response = (await axios.post(`/api/public/auth`, loginDto)).data
             localStorage.setItem('user', JSON.stringify({...response,
@@ -39,10 +35,6 @@ const LoginModal = (props) => {
 
     const togglePasswordVisiblity = () => {
         setPasswordShown(!passwordShown)
-    }
-
-    const togglePasswordRepeatVisiblity = () => {
-        setPasswordRepeatShown(!passwordRepeatShown)
     }
 
     const modal = () => {
@@ -60,17 +52,12 @@ const LoginModal = (props) => {
                     <input className="form-control" type={passwordShown ? "text" : "password"} name="password" onChange={handleChange} value={loginDto.password}></input>
                     <i id="password" onClick={togglePasswordVisiblity}>{eye}</i>
                 </div>
-                <div>Repitir Senha
-                    <input className="form-control" type={passwordRepeatShown ? "text" : "password"} name="passwordRepeat" onChange={handleChange} value={loginDto.passwordRepeat}></input>
-                    <i id="passwordRepeat" onClick={togglePasswordRepeatVisiblity}>{eye}</i>
-                </div>
             </form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={doLogin} disabled={
                         !loginDto.username
                         || !loginDto.password
-                        || !loginDto.passwordRepeat
                     }>Entrar</Button>
                 </Modal.Footer>
             </Modal>
