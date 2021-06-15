@@ -3,8 +3,8 @@ import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
-import Login from '../login/login'
-import ChangePassword from '../change-password/change-password'
+import LoginModal from '../person/modals/login-modal/login-modal'
+import ChangePasswordModal from '../person/modals/change-password-modal/change-password-modal'
 
 
 export default function Header() {
@@ -48,8 +48,8 @@ export default function Header() {
 
     return (
         <div className="mainHeader">
-            <Login showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></Login>
-            <ChangePassword showChangePasswordModal={showChangePasswordModal} setShowChangePasswordModal={setShowChangePasswordModal}></ChangePassword>
+            <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></LoginModal>
+            <ChangePasswordModal showChangePasswordModal={showChangePasswordModal} setShowChangePasswordModal={setShowChangePasswordModal}></ChangePasswordModal>
             <div className="content">
                 <div className="logo">
                     <div className="inga">Ingá</div>

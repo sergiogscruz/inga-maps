@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import "./login.css"
+import "./login-modal.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios'
-import { AxiosHelper } from '../helpers/axios-helper'
+import { AxiosHelper } from '../../../helpers/axios-helper'
 
-const Login = (props) => {
+const LoginModal = (props) => {
     const {showLoginModal, setShowLoginModal} = props
     const [loginDto, setLoginDto] = useState({username:"", password:"", passwordRepeat:""})
     const [passwordShown, setPasswordShown] = useState(false)
@@ -78,8 +78,8 @@ const Login = (props) => {
     }
 
     return (
-        <div> {modal()}</div>
+        <div>{modal()}</div>
     )
 }
 
-export default Login
+export default LoginModal
