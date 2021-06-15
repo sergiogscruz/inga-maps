@@ -5,11 +5,14 @@ import { faSearch, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { faStar, faCalendar } from '@fortawesome/free-regular-svg-icons'
 import LoginModal from '../person/modals/login-modal/login-modal'
 import ChangePasswordModal from '../person/modals/change-password-modal/change-password-modal'
+import RegisterPersonModal from '../person/modals/register-person-modal/register-person-modal'
+import { UserAnonymousHelper } from '../helpers/user-anonymous-helper'
 
 
 export default function Header() {
     const [showLoginModal, setShowLoginModal] = useState(false)
     const [showChangePasswordModal, setShowChangePasswordModal] = useState(false)
+    const [showRegisterPersonModal, setShowRegisterPersonModal] = useState(false)
 
     const userIsConnected = () => {
         const user = JSON.parse(localStorage.getItem('user'))
@@ -36,20 +39,19 @@ export default function Header() {
         setShowChangePasswordModal(true)
     }
 
+    const useRegisterPerson = () => {
+        setShowRegisterPersonModal(true)
+    }
+
     const doLogout = () => {
-        localStorage.setItem('user', JSON.stringify({
-            name: "Anônimo",
-            personType: "TOURIST_ANONYMOUS",
-            photo: "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png",
-            token: "Basic YW5vbmltbzppbmdhbWFwcw=="
-        }))
-        window.location.reload();
+        UserAnonymousHelper.logout()
     }
 
     return (
         <div className="mainHeader">
             <LoginModal showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal}></LoginModal>
             <ChangePasswordModal showChangePasswordModal={showChangePasswordModal} setShowChangePasswordModal={setShowChangePasswordModal}></ChangePasswordModal>
+            <RegisterPersonModal showRegisterPersonModal={showRegisterPersonModal} setShowRegisterPersonModal={setShowRegisterPersonModal}></RegisterPersonModal>
             <div className="content">
                 <div className="logo">
                     <div className="inga">Ingá</div>
@@ -82,6 +84,7 @@ export default function Header() {
                         </div>}
                         {!userIsConnected() && <div className="dropdown-content">
                             <p onClick={useLogin}>Entrar</p>
+                            <p onClick={useRegisterPerson}>Registrar-se</p>
                         </div>}
                     </div>
                 </div>
