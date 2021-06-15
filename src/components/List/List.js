@@ -1,5 +1,7 @@
 import React from "react";
-import './List.css'
+import './List.css';
+import { faCheckCircle }from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function List () {
     return (
@@ -12,32 +14,24 @@ function List () {
                                 <div className="title">Bangkok Garden</div>
                                 <button className="visible"> + Visualizar</button>
                             </div>
-                            <div className="itens">
-                            XXX
+                            <div className="list-itens">
+                                <div className="item">
+                                    <FontAwesomeIcon icon={faCheckCircle} className="fa-lg" id="check"/>
+                                    <span>Comercial de bisteca bovina</span>
+                                </div>
+                                <div className="item">
+                                    <FontAwesomeIcon icon={faCheckCircle} className="fa-lg" id="check"/>
+                                    <span>Picaminha Comercial</span>
+                                </div>
+                                <div className="item">
+                                    <FontAwesomeIcon icon={faCheckCircle} className="fa-lg" id="check"/>
+                                    <span>Feijoada</span>
+                                </div>
                             </div>
                         </div>
                         <div className="image">
-                            <ul>
-                                <li>
-                                    i
-                                </li>
-                                <li>
-                                    i
-                                </li>
-                                <li>
-                                    i
-                                </li>
-                        
-                            </ul>
+                            <div className="background"></div>
                         </div>
-                    </div>
-                    <div className="card">
-                        <div>B</div>
-                        <div>B</div>
-                    </div>
-                    <div className="card">
-                        <div>C</div>
-                        <div>C</div>
                     </div>
                 </div>
             </div>
