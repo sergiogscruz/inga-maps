@@ -8,7 +8,7 @@ function List () {
         <>
             <div className="containerList">
                 <div className="column">
-                    <div className="card">
+                    <div className="card-list">
                         <div className="description">
                             <div className="desc">
                                 <div className="title">Bangkok Garden</div>
