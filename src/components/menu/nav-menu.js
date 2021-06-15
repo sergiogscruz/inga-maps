@@ -5,8 +5,7 @@ import './nav-menu.css'
 export default function NavMenu() {
 
     return (
-        <div className="container">
-
+        <div className="container-nav">
             <ul>
               <li>      
                 <Link to="/">HOME</Link>

@@ -1,11 +1,11 @@
-.container {
+.container-nav {
     width: 100vw;
     height: 80px;
     background-color: #0A223D;
     display: flex;
 }
 
-.container ul {
+.container-nav ul {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -18,7 +18,7 @@
     margin-top: 0;
 }
 
-.container ul li {
+.container-nav ul li {
     display: flex;
     align-items: center;
     padding-left: 1%;
@@ -26,11 +26,11 @@
     text-align: center;
 }
 
-.container ul li:hover {
+.container-nav ul li:hover {
     background-color: #EC1F46;
 }
 
-.container ul li a {
+.container-nav ul li a {
     color: #FFFF;
     text-decoration: none;
     font-size: 14px;
