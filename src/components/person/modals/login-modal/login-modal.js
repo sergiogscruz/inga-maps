@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import "./login.css"
+import "./login-modal.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios'
+import { AxiosHelper } from '../../../helpers/axios-helper'
 
-const Login = (props) => {
+const LoginModal = (props) => {
     const {showLoginModal, setShowLoginModal} = props
-    const [loginDto, setLoginDto] = useState({username:"", password:"", passwordRepeat:""})
+    const [loginDto, setLoginDto] = useState({username:"", password:""})
     const [passwordShown, setPasswordShown] = useState(false)
-    const [passwordRepeatShown, setPasswordRepeatShown] = useState(false)
     const eye = <FontAwesomeIcon icon={faEye}/>
 
     const hideModal = () => {
@@ -21,15 +21,12 @@ const Login = (props) => {
     }
 
     const doLogin = async () => {
-        if (loginDto.password !== loginDto.passwordRepeat) {
-            return alert('As senhas não conferem.')
-        }
         try {
             const response = (await axios.post(`/api/public/auth`, loginDto)).data
             localStorage.setItem('user', JSON.stringify({...response,
                 photo: response.photo ? response.photo : 'https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png'
             }))
-            axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('user')).token;
+            AxiosHelper.updateToken(response.token)
             hideModal()
         } catch (error) {
             alert('Usuário ou senha incorreta.')
@@ -38,10 +35,6 @@ const Login = (props) => {
 
     const togglePasswordVisiblity = () => {
         setPasswordShown(!passwordShown)
-    }
-
-    const togglePasswordRepeatVisiblity = () => {
-        setPasswordRepeatShown(!passwordRepeatShown)
     }
 
     const modal = () => {
@@ -59,17 +52,12 @@ const Login = (props) => {
                     <input className="form-control" type={passwordShown ? "text" : "password"} name="password" onChange={handleChange} value={loginDto.password}></input>
                     <i id="password" onClick={togglePasswordVisiblity}>{eye}</i>
                 </div>
-                <div>Repitir Senha
-                    <input className="form-control" type={passwordRepeatShown ? "text" : "password"} name="passwordRepeat" onChange={handleChange} value={loginDto.passwordRepeat}></input>
-                    <i id="passwordRepeat" onClick={togglePasswordRepeatVisiblity}>{eye}</i>
-                </div>
             </form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={doLogin} disabled={
                         !loginDto.username
                         || !loginDto.password
-                        || !loginDto.passwordRepeat
                     }>Entrar</Button>
                 </Modal.Footer>
             </Modal>
@@ -77,8 +65,8 @@ const Login = (props) => {
     }
 
     return (
-        <div> {modal()}</div>
+        <div>{modal()}</div>
     )
 }
 
-export default Login
+export default LoginModal
