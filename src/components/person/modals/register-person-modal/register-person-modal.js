@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap'
 import "./register-person-modal.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
-import { DebounceInput } from 'react-debounce-input'
+import { AsyncTypeahead } from 'react-bootstrap-typeahead'
 import axios from 'axios'
 
 const RegisterPersonModal = (props) => {
@@ -17,7 +17,10 @@ const RegisterPersonModal = (props) => {
   const [passwordShown, setPasswordShown] = useState(false)
   const [passwordRepeatShown, setPasswordRepeatShown] = useState(false)
   const eye = <FontAwesomeIcon icon={faEye}/>
-  const [city, setCity] = useState("")
+
+  const [isLoading, setIsLoading] = useState(false)
+  const [searchedAddress, setSearchedAddress] = useState([])
+  const [address, setAddress] = useState([])
 
   const hideModal = () => {
     setShowRegisterPersonModal(false)
@@ -64,39 +67,41 @@ const RegisterPersonModal = (props) => {
     setPasswordRepeatShown(!passwordRepeatShown)
   }
 
-  const handleChangeCity = async (event) => {
-    setCity(event.target.value)
-    await findAddressByCity(event.target.value)
-  }
-
-  const findAddressByCity = async (city) => {
-    const response = (await axios.get(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities`, {
-        params : {
-          "namePrefix": city
-        },
-        headers : {
-          "x-rapidapi-key": 'c497ebc13bmsh9d13b8ae729cc63p1993f0jsn5c0472a6f4be'
-        }
-      })).data
-    if (response.data.length === 1) {
+  const setPersonAddressSelected = async (address) => {
+    setAddress(address)
+    if (address.length > 0) {
       const personAddress = await axios.get(`/api/person-address/find-by/country-state-city`,{
         params : {
-          country: response.data[0].country,
-          state: response.data[0].region,
-          city: response.data[0].city
+          country: address[0].country,
+          state: address[0].region,
+          city: address[0].city
         }
       })
       if (personAddress.data) {
         setPerson({...person, personAddress: personAddress.data})
       } else {
         setPerson({...person, personAddress: {
-            country: response.data[0].country,
-            state: response.data[0].region,
-            city: response.data[0].city
+            country: address[0].country,
+            state: address[0].region,
+            city: address[0].city
           }
         })
       }
     }
+  }
+
+  const getAddressSuggestions = async (city) => {
+    setIsLoading(true)
+    const response = (await axios.get(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities`, {
+      params : {
+        "namePrefix": city
+      },
+      headers : {
+        "x-rapidapi-key": 'c497ebc13bmsh9d13b8ae729cc63p1993f0jsn5c0472a6f4be'
+      }
+    })).data
+    setSearchedAddress(response.data)
+    setIsLoading(false)
   }
 
   const modal = () => {
@@ -121,14 +126,18 @@ const RegisterPersonModal = (props) => {
             <input className="form-control" type={passwordRepeatShown ? "text" : "password"} name="passwordRepeat" onChange={handleChangePerson} value={person.userLogin.passwordRepeat}></input>
             <i id="passwordRepeatRegister" onClick={togglePasswordRepeatVisiblity}>{eye}</i>
           </div>
-          <div>Buscar Cidade
-            <DebounceInput
-              type="text"
-              name="city"
-              onChange={handleChangeCity}
-              value={city}
-              debounceTimeout={500}
-              className="form-control"
+          <div>Buscar por Cidade
+            <AsyncTypeahead
+              id="id"
+              filterBy={() => true}
+              isLoading={isLoading}
+              labelKey={(address) => `${address.city}, ${address.region} - ${address.country}`}
+              onSearch={getAddressSuggestions}
+              options={searchedAddress}
+              onChange={setPersonAddressSelected}
+              positionFixed={false}
+              selected={address}
+              minLength={1}
             />
           </div>
           <div>País
