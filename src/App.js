@@ -12,7 +12,7 @@ import ContentBody from './components/content/ContentBody';
 import { FirebaseHelper } from './components/helpers/firebase-helper';
 import { UserAnonymousHelper } from './components/helpers/user-anonymous-helper';
 import { AxiosHelper } from './components/helpers/axios-helper';
-
+import List from './components/List/List';
 
 function App() {
   FirebaseHelper.initializeApp()
@@ -33,7 +33,7 @@ function App() {
             <ContentBody />
           </Route>
           <Route path="/restaurants">
-            <ContentBody />
+            <List />
           </Route>
           <Route path="/shoppings">
             <ContentBody />
