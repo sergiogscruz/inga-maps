@@ -9,25 +9,17 @@ import {
 import Header from './components/header/header';
 import NavMenu from './components/menu/nav-menu';
 import ContentBody from './components/content/ContentBody';
+import { FirebaseHelper } from './components/helpers/firebase-helper';
+import { UserAnonymousHelper } from './components/helpers/user-anonymous-helper';
+import { AxiosHelper } from './components/helpers/axios-helper';
 import List from './components/List/List';
-import axios from 'axios';
-
-
 
 function App() {
-  if (!localStorage.getItem('user')) {
-    localStorage.setItem('user', JSON.stringify({
-      name: "Anônimo",
-      personType: "TOURIST_ANONYMOUS",
-      photo: "https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916_640.png",
-      token: "Basic YW5vbmltbzppbmdhbWFwcw=="
-    }))
-  }
+  FirebaseHelper.initializeApp()
 
-  axios.defaults.baseURL = 'https://ingamaps-api.herokuapp.com';
-  axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('user')).token;
-  axios.defaults.headers.post['Content-Type'] = 'application/json';
+  UserAnonymousHelper.initializeUserAnonymous()
 
+  AxiosHelper.initializeAxios()  
   return (
     <>
       <Header></Header>

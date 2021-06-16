@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
-import "./change-password.css"
+import "./change-password-modal.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import axios from 'axios'
 
-const ChangePassword = (props) => {
+const ChangePasswordModal = (props) => {
     const {showChangePasswordModal, setShowChangePasswordModal} = props
     const [changePasswordDto, setChangePasswordDto] = useState({username:"", password:"", newPassword:"", newPasswordRepeat:""})
     const [passwordShown, setPasswordShown] = useState(false)
@@ -87,8 +87,8 @@ const ChangePassword = (props) => {
     }
 
     return (
-        <div> {modal()}</div>
+        <div>{modal()}</div>
     )
 }
 
-export default ChangePassword
+export default ChangePasswordModal
