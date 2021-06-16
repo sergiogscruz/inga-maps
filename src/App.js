@@ -13,6 +13,7 @@ import { FirebaseHelper } from './components/helpers/firebase-helper';
 import { UserAnonymousHelper } from './components/helpers/user-anonymous-helper';
 import { AxiosHelper } from './components/helpers/axios-helper';
 import List from './components/List/List';
+import Footer from './components/footer/footer'
 
 function App() {
   FirebaseHelper.initializeApp()
@@ -49,6 +50,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 }
