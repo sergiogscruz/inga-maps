@@ -16,7 +16,6 @@ import { AxiosHelper } from './components/helpers/axios-helper';
 
 function App() {
   FirebaseHelper.initializeApp()
-  FirebaseHelper.printTest()
 
   UserAnonymousHelper.initializeUserAnonymous()
 

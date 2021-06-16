@@ -1,11 +1,11 @@
-#password {
+#passwordRegister {
   position: absolute;
-  top: 61%;
+  top: 32.5%;
   right: 5%;
 }
 
-#passwordRepeat {
+#passwordRepeatRegister {
   position: absolute;
-  top: 83%;
+  top: 44%;
   right: 5%;
 }
