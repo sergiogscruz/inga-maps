@@ -6,12 +6,13 @@
 .column {
     width: 100%;
     margin-top: 6%;
+    margin-bottom: 12%;
 }
 
 .card-list {
     height: 205px;
     background-color: #0A223D; 
-    margin-top: 5%;
+    margin-top: 3%;
     display: flex;
     justify-content: space-between;
     border-radius: 8px;
@@ -80,11 +81,15 @@
 
 .list-itens {
     background-color: #0A223D;
+    color: #FFFFFF;
     border-top-left-radius:8px;
     border-bottom-left-radius:8px;
     margin-left: 4%;
     margin-top: 5%;
     width: 100%;
+    padding-right: 5px;
+    font-family: 'Mulish','Courier New', Courier, monospace;
+
 }
 
 .item {
