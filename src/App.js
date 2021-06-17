@@ -27,23 +27,23 @@ function App() {
       <Router>
         <NavMenu />
         <Switch>
-          <Route path="/hotels">
-            <ContentBody />
-          </Route>
-          <Route path="/touristspots">
-            <ContentBody />
-          </Route>
-          <Route path="/restaurants">
+          <Route path="/hotel">
             <List />
           </Route>
-          <Route path="/shoppings">
-            <ContentBody />
+          <Route path="/attractions">
+            <List />
+          </Route>
+          <Route path="/restaurant">
+            <List />
+          </Route>
+          <Route path="/shopping">
+          <List />
           </Route>
           <Route path="/nextevent">
-            <ContentBody />
+          <List />
           </Route>
           <Route path="/contacts">
-            <ContentBody />
+            <List />
           </Route>
           <Route path="/">
             <ContentBody />
