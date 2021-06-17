@@ -21,6 +21,7 @@ function App() {
   return (
     <>
       <Header></Header>
+      <div style={{backgroundColor: "#EEF7FF"}}>
       <Router>
         <NavMenu />
         <Switch>
@@ -48,6 +49,8 @@ function App() {
         </Switch>
       </Router>
       <Footer />
+      </div>
+
     </>
   );
 }
