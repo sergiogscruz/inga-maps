@@ -27,20 +27,20 @@ function List () {
         };
 
         return (
-            <div className="card-list">
-            <div className="description">
-                <div className="desc">
-                    <div className="title">{local.name}</div>
-                    <button className="visible"> + Visualizar</button>
+            <div className="card-list" data-aos="zoom-out" data-aos-duration="700">
+                <div className="description">
+                    <div className="desc">
+                        <div className="title">{local.name}</div>
+                        <button className="visible">+ Visualizar</button>
+                    </div>
+                    <div className="list-itens">
+                        {local.description}
+                    </div>
                 </div>
-                <div className="list-itens">
-                    {local.description}
+                <div className="image">
+                    <div className="background" style={classImgBackground}></div>
                 </div>
-            </div>
-            <div className="image">
-                <div className="background" style={classImgBackground}></div>
-            </div>
-        </div>)
+            </div>)
     }
 
     return (

@@ -5,7 +5,7 @@
 
 .column {
     width: 100%;
-    margin-top: 9%;
+    margin-top: 6%;
     margin-bottom: 12%;
 }
 
@@ -52,7 +52,7 @@
     word-wrap: break-all;
     display: flex;
     text-align: center;
-    margin-top: 22%;
+    margin-top: 14%;
     align-items: center;
     border-top-left-radius:8px;
     border-bottom-right-radius:8px;
@@ -72,12 +72,19 @@
     background-repeat:no-repeat;
     border: none;
     overflow: hidden;
-    height: 20%;
+    min-height: 20%;
     width: 65%;
     border-radius: 4px;
     font-family: 'Roboto';
     color: #FFFFFF;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+    font-size: 1em;
+}
+
+.visible:hover {
+    background-color:#f86a84;
+    align-items: center;
 }
 
 .list-itens {
@@ -117,4 +124,12 @@
     border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
     background-position: center;
+    transition: all 0.4s;
+}
+
+.background:hover {
+    transform: scale(1.05);
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    
 }
