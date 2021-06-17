@@ -5,7 +5,7 @@
 
 .column {
     width: 100%;
-    margin-top: 6%;
+    margin-top: 9%;
     margin-bottom: 12%;
 }
 
@@ -27,8 +27,9 @@
 }
 
 .image {
+    background-image: url("../../assets/imagens/loading.gif");
+    background-position: center;
     width: 50%;
-    background-color: antiquewhite;
     border-bottom-right-radius:8px; 
     border-top-right-radius:8px;   
 }
@@ -110,7 +111,6 @@
 }
 
 .background {
-    background: url("http://4.bp.blogspot.com/-sEKYVPuZfqo/U6Gb_rhA9SI/AAAAAAAAA3s/ASIfQeom3zc/s1600/Modern+Restaurant+Interior+Design+Ideas.jpg");
     background-repeat:no-repeat;
     width: 100%;
     height: 100%;

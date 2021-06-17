@@ -12,19 +12,19 @@ export default function NavMenu() {
               </li>
 
               <li>
-                <Link to="/hotels">HOTEIS</Link>
+                <Link to="/hotel">HOTEIS</Link>
               </li>
 
               <li>
-                <Link to="/touristspots">PONTOS TURÍSTICOS</Link>
+                <Link to="/attractions">PONTOS TURÍSTICOS</Link>
               </li>
 
               <li>
-                <Link to="/restaurants">RESTAURANTE</Link>
+                <Link to="/restaurant">RESTAURANTE</Link>
               </li>
 
               <li>
-                <Link to="/shoppings">SHOPPINGS</Link>
+                <Link to="/shopping">SHOPPINGS</Link>
               </li>
 
               <li>

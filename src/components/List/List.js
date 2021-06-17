@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
+import { useLocation, }  from "react-router-dom";
 import './List.css';
-import { faCheckCircle }from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+
 
 function List () {
     const [locais, setLocais] = useState([]);
+    const locationName = useLocation().pathname.substr(1).toUpperCase();
 
     useEffect(() => {
         axios.get('api/local').then((resource) => {
@@ -36,8 +37,8 @@ function List () {
                     {local.description}
                 </div>
             </div>
-            <div id = "teste" className="image">
-                <div  className="background" style={classImgBackground}></div>
+            <div className="image">
+                <div className="background" style={classImgBackground}></div>
             </div>
         </div>)
     }
@@ -46,7 +47,7 @@ function List () {
         <>
             <div className="containerList">
                 <div className="column">
-                    {locais.map((local)=> HandleList(local))}
+                    {locais.map((local)=> local.category === locationName ? HandleList(local) : '')}
                 </div>
             </div>
         </>
