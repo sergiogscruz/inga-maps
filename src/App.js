@@ -9,15 +9,12 @@ import {
 import Header from './components/header/header';
 import NavMenu from './components/menu/nav-menu';
 import ContentBody from './components/content/ContentBody';
-import { FirebaseHelper } from './components/helpers/firebase-helper';
 import { UserAnonymousHelper } from './components/helpers/user-anonymous-helper';
 import { AxiosHelper } from './components/helpers/axios-helper';
 import List from './components/List/List';
 import Footer from './components/footer/footer'
 
 function App() {
-  FirebaseHelper.initializeApp()
-
   UserAnonymousHelper.initializeUserAnonymous()
 
   AxiosHelper.initializeAxios()  
