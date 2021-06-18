@@ -1,0 +1,44 @@
+.container-footer-contatos {
+    background-color: #0A223D;
+    color: white;
+}
+
+.footer-title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 50px;
+}
+
+.footer-title-inga {
+    color: #fff;
+}
+
+.footer-title-maps {
+    color: #EC1F46;
+}
+
+.footer-lista-categorias {
+    list-style: none;
+}
+
+.footer-lista-categorias li {
+    font-size: 14px;
+    color: #b9b9b9;
+}
+
+.footer-lista-categorias li:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.footer-color-gray {
+    color: #b9b9b9;
+}
+.btn-enviar {
+    margin-top: 8px;
+    text-align: center;
+    padding: 10px 17px;
+    border-radius: 2px;
+    color: white;
+    border: none;
+    background-color: #EC1F46;
+}
