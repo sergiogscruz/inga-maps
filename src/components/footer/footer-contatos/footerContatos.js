@@ -52,7 +52,7 @@ export default function FooterContatos() {
                         </div>
                     </div>
                     <div className="mt-3">
-                        <textarea className="w-100 p-2" placeholder="mensagem" style={{minHeight: '100px'}}></textarea>
+                        <textarea className="w-100 p-2" placeholder="Mensagem" style={{minHeight: '100px'}}></textarea>
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <button className="btn-enviar">Enviar</button>
